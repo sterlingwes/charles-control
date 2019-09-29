@@ -6,7 +6,7 @@ interface Options {
   webHost: string;
 }
 
-enum Tool {
+export enum Tool {
   Breakpoints = 'breakpoints',
   ReverseProxies = 'reverse-proxies',
   PortForwarding = 'port-forwarding',
