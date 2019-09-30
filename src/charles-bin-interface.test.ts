@@ -23,7 +23,7 @@ Charles Proxy 4.2.1`;
     it('should return the semver part', () => {
       expect(getVersion()).toBe('4.2.1');
       expect(mockedProc.execSync).toBeCalledWith(
-        `${DEFAULT_CHARLES_PATH} -v`,
+        `${DEFAULT_CHARLES_PATH}/Contents/MacOS/Charles -v`,
         expect.objectContaining({ encoding: 'utf8' }),
       );
     });

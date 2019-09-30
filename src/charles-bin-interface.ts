@@ -1,11 +1,12 @@
 import { execSync } from 'child_process';
 
-export const DEFAULT_CHARLES_PATH = '/Applications/Charles.app/Contents/MacOS/Charles';
+export const DEFAULT_CHARLES_PATH = '/Applications/Charles.app';
+const BIN_PATH = '/Contents/MacOS/Charles';
 
-const getCharlesLocation = () => process.env.CHARLES_PATH || DEFAULT_CHARLES_PATH;
+const getCharlesBinLocation = () => `${process.env.CHARLES_PATH || DEFAULT_CHARLES_PATH}${BIN_PATH}`;
 
 const run = (command: string) => {
-  return execSync(`${getCharlesLocation()} ${command}`, { encoding: 'utf8' });
+  return execSync(`${getCharlesBinLocation()} ${command}`, { encoding: 'utf8' });
 };
 
 export const getVersion = () => {

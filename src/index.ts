@@ -1,7 +1,7 @@
 import { getVersion, DEFAULT_CHARLES_PATH } from './charles-bin-interface';
 import { CharlesWebManager } from './charles-web-interface';
 
-interface Options {
+export interface Options {
   path?: string;
   host?: string;
   port?: number;
@@ -10,11 +10,15 @@ interface Options {
   webHostPass?: string;
 }
 
+export const DEFAULT_CHARLES_HOST = 'localhost';
+export const DEFAULT_CHARLES_PORT = 8888;
+export const DEFAULT_CHARLES_WEB_HOST = 'control.charles';
+
 const addDefaults = ({ path, host, port, webHost, webHostUser, webHostPass }: Options): Required<Options> => ({
   path: path || DEFAULT_CHARLES_PATH,
-  host: host || 'localhost',
-  port: port || 8888,
-  webHost: webHost || 'control.charles',
+  host: host || DEFAULT_CHARLES_HOST,
+  port: port || DEFAULT_CHARLES_PORT,
+  webHost: webHost || DEFAULT_CHARLES_WEB_HOST,
   webHostUser: webHostUser || '',
   webHostPass: webHostPass || '',
 });

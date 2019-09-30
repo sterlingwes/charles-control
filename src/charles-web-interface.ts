@@ -42,7 +42,7 @@ export class CharlesWebManager {
   get basicAuthHeaderValue() {
     if (!this.options.credentials) return '';
     const { user, pass } = this.options.credentials;
-    const auth = btoa(`${user}:${pass}`);
+    const auth = Buffer.from(`${user}:${pass}`).toString('base64');
     return `Basic ${auth}`;
   }
 
